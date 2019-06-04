@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="score" style="width: 100%; font-size: 40px;">0</div>
+    <script src="shake/shake.js"></script>
+    <script>
+        var myShakeEvent = new Shake({
+    threshold: 15, // optional shake strength threshold
+    timeout: 1000 // optional, determines the frequency of event generation
+});
+
+myShakeEvent.start();
+
+var score = 0;
+
+window.addEventListener('shake', shakeEventDidOccur, false);
+
+//function to call when shake occurs
+function shakeEventDidOccur () {
+
+    score++;
+
+    document.getElementById('score').innerHTML = score;
+}
+
+
+    </script>
+</body>
+</html>
